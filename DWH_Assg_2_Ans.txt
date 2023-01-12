@@ -1,0 +1,62 @@
+## CASE_STUDY_1 :-
+
+Question 1. What are the strengths and weaknesses of each option?
+--> 
+option 1] 
+strength :- whole data related to instructor will be available in single fact table. insturctor group related query will be 	    easy to search.
+
+weakness :- data redudancy will occur due to group_instructor and single instructor name. Also, same data will be copied in 	            same table.
+
+option 2] 
+strength :- grain rule for fact table will be preserved. aggregation will be help to easily query the group_instructor
+
+weakness :- two grain per student will create data redundancy. Also, aggregation may be time consuming in big queries.
+
+option 3] 
+strength :- data normalization will help. Two fact table as per consitions will be crated and it helps in query as per need.
+
+weakness :- While creating two fact table, more memory will be required compared to other options.
+____________________________________________________________________________________________________________________________
+
+Question 2. Which option would you choose and why?
+--> I will prefer Option 3 for fact table grain. Group instructor are less in number compared in all courses. If we write group instructor name in single grain then it may create issue of Data redundancy and normalization. So, We can create two different fact table and use as per need and query the result. 
+____________________________________________________________________________________________________________________________
+
+Question 3. Would your answer to Question 2 be different if the majority of classes had multiple instructors? How
+about if only one or two classes had multiple instructors? (Explain your answer.)
+--> we can create other table for such multiple instructors table. If we add multiple instructor in single table then it may create issue for data storage and queries. So, creating another table may help in such scene. 
+
+____________________________________________________________________________________________________________________________
+
+## CASE_STUDY_2 :-
+
+Question 5. What are the strengths and weaknesses of each option?
+-->  
+option 1] 
+strength :- less space will be occupied. updated data will consume same memory of existing space. 
+
+weakness :- histroical data will be deleted. If previous data is required than we cant access.   
+
+option 2] 
+strength :- old and updated both data will be stored. it helps to access old as well as updated data together.
+
+weakness :- require more memory space in storing old and updated data.
+
+option 3] 
+strength :- separate dimension table helps to preserve dynamic updated data as per new values.
+
+weakness :- it require more space as per updating values. 
+
+option 4] 
+strength :- it helps in dynamic changing values. updated values will be referenced using foreign key to the table. important             data will be preserved.
+
+weakness :- joins in table may be difficult for large queries.
+
+____________________________________________________________________________________________________________________________
+Question 6. Which option would you choose and why?
+--> I will prefer option 4. updated data values are stored in new column and they are referenced to fact table. if new values are updated existing table will store it. It helps in managing historical and updated data both.   
+
+____________________________________________________________________________________________________________________________
+Question 7. Would your answer to Question 6 be different if the number of customers and/or the time interval
+between score recalculations was much larger or much smaller? (Explain your answer.)
+--> It depend on how fast data is changing and at what time data get stored in table. different cluster should be created for different frequency members determined on basis of use of trade facilities.  
