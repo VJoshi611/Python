@@ -1,0 +1,61 @@
+# SEARCHING AN ELEMENTS
+
+Given an array containing some digits and infinity numbers. Find first index of 'inf' element in given array.
+
+Input :  [1,2,3,4,'inf','inf','inf']
+Output : 4
+
+Explanation : First index containing 'infinity' element is present at 4th index in array.
+
+----------------------------------------------------------
+
+Solution_1 : Binary Search using recursion :
+
+## Function Definition
+## Time complexity : O(logn)
+
+def bin(arr,i,j,x):
+    while i <=j:
+        mid = i + (j-i)//2
+        print(mid)
+        if arr[mid] == x and arr[mid-1] != 'inf':
+            return mid
+        elif arr[mid] !=x :
+            return bin(arr,mid+1,j,x)      # parameters changed
+        else:
+            return bin(arr,i,mid-1,x)
+        ## Searching element is not present in the array
+    return -1
+
+arr = [1,2,3,4,5,7,8,'inf','inf','inf']
+i = 0             # initial index
+j=len(arr)-1      # last index
+x='inf'            # element to be searched
+res=bin(arr,i,j,x)
+print("Searching element is present at the index : ",res)
+
+--------------------------------------------------------------------------
+
+Solution_2 : Binary Search without using recursion :
+
+def bin(arr,i,j,x):
+    while i <=j:
+        mid = i + (j-i)//2
+        print(mid)
+        if arr[mid] == x and arr[mid-1] != 'inf':
+            return mid
+        elif arr[mid] !=x :
+            i=mid+1      # parameters changed
+        else:
+            j=mid-1
+        ## Searching element is not present in the array
+    return -1
+
+arr = [1,2,3,4,5,7,8,'inf','inf','inf']
+i = 0             # initial index
+j=len(arr)-1      # last index
+x='inf'            # element to be searched
+res=bin(arr,i,j,x)
+print("Searching element is present at the index : ",res)  
+
+
